@@ -1,6 +1,7 @@
 #include <vector>
 #include <chrono>
 #include <random>
+#include <algorithm>
 
 static int get_random_index(int l, int r)
 {
@@ -52,6 +53,7 @@ public:
 
     int findKthLargest(std::vector<int> &nums, int k)
     {
-        return _findKthLargest(nums, k, 0, nums.size());
+        std::nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), std::greater<int>());
+        return nums[k - 1];
     }
 };

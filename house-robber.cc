@@ -1,8 +1,10 @@
+#include <vector>
+
 class Solution {
 public:
-    int max(int a, int b) noexcept { return a > b ? a : b;}
+    constexpr int max(int a, int b) const noexcept { return a > b ? a : b;}
     
-    int rob(vector<int>& nums) 
+    int rob(std::vector<int>& nums) 
     {
         int *arr = new int[nums.size()];
         int res = 0;
