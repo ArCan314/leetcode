@@ -1,0 +1,30 @@
+find-the-duplicate-number
+
+Bit Manipulation:
+    power-of-four
+
+
+DP:
+    counting-bits
+
+
+DQ:
+    kth-largest-element-in-an-array
+
+
+Greedy:
+    queue-reconstruction-by-height
+
+
+Linked List:
+    odd-even-linked-list
+
+
+
+Trick:
+    find-all-numbers-disappeared-in-an-array
+
+
+Trie:
+    implement-trie-prefix-tree
+    add-and-search-word-data-structure-design
