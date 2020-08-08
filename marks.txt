@@ -2,6 +2,7 @@ find-the-duplicate-number
 
 Bit Manipulation:
     power-of-four
+    single-number-ii
 
 
 DP:
@@ -20,9 +21,17 @@ Linked List:
     odd-even-linked-list
 
 
+String:
+    DFS & Stack: decode-string
+
+
+Tree:
+    PQ & Map: vertical-order-traversal-of-a-binary-tree
+    path-sum-iii
 
 Trick:
-    find-all-numbers-disappeared-in-an-array
+    find-all-numbers-disappeared-in-an-array and find-all-duplicates-in-an-array
+    next-permutation
 
 
 Trie:
