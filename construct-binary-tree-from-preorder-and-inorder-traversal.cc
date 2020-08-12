@@ -26,25 +26,35 @@ class Solution
 public:
     TreeNode *_buildTree(std::vector<int> &preorder, int &cur, std::vector<int> &inorder, int in_cur, int lo, int hi)
     {
+        // std::cout << "in: " << preorder[cur] << std::endl;
         TreeNode *node = new TreeNode(preorder[cur]);
 
 
         while (++cur < preorder.size())
         {
+            // std::cout << "find cur = " << cur << std::endl;
             bool is_find = false;
-            for (int i = lo; i < hi; i++)
+            for (int i = lo; i < hi && cur < preorder.size(); i++)
                 if (preorder[cur] == inorder[i])
                 {
                     if (i < in_cur)
-                        node->left = _buildTree(preorder, cur, inorder, i, lo, i);
+                        node->left = _buildTree(preorder, cur, inorder, i, lo, in_cur);
                     else // i > in_cur
-                        node->right = _buildTree(preorder, cur, inorder, i, i + 1, hi);
+                        node->right = _buildTree(preorder, cur, inorder, i, in_cur + 1, hi);
                     is_find = true;
+                    break;
                 }
             
             if (!is_find)
+            {
+                cur--;
+                // std::cout << "dec cur = " << cur << std::endl; 
                 break;
+            }
+            
+            
         }
+        // std::cout << "out: " << inorder[in_cur] << std::endl;
         return node;
     }
 

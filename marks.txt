@@ -5,12 +5,21 @@ Bit Manipulation:
     single-number-ii
 
 
+Design:
+    flatten-nested-list-iterator
+    insert-delete-getrandom-o1
+    cn/yong-liang-ge-zhan-shi-xian-dui-lie-lcof
+
 DP:
     counting-bits
-
+    pascals-triangle-ii
 
 DQ:
     kth-largest-element-in-an-array
+
+
+Graph:
+    BFS: rotting-oranges
 
 
 Greedy:
@@ -28,11 +37,12 @@ String:
 Tree:
     PQ & Map: vertical-order-traversal-of-a-binary-tree
     path-sum-iii
+    traversal: construct-binary-tree-from-preorder-and-inorder-traversal
 
 Trick:
     find-all-numbers-disappeared-in-an-array and find-all-duplicates-in-an-array
     next-permutation
-
+    hashmap: 4sum-ii
 
 Trie:
     implement-trie-prefix-tree
