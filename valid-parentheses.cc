@@ -28,9 +28,7 @@ public:
                 break;
             default:
                 if (stack.size() && stack.back() == par(s[i]))
-                {
                     stack.pop_back();
-                }
                 else 
                     return false;
                 break;
