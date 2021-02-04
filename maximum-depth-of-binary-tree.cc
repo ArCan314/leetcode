@@ -1,5 +1,4 @@
-#define LOCAL
-#ifdef LOCAL
+
 struct TreeNode
 {
     int val;
@@ -7,12 +6,6 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 };
-#endif // LOCAL
-
-#define RECURSION
-#ifdef RECURSION
-
-#include <algorithm>
 
 /**
  * Definition for a binary tree node.
@@ -23,63 +16,45 @@ struct TreeNode
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <algorithm>
+#include <deque>
+
 class Solution
 {
 public:
     int maxDepth(TreeNode *root)
     {
-        if (!root)
-            return 0;
-
-        int left_depth, right_depth;
-        left_depth = right_depth = 0;
-
-        if (root->left) 
-            left_depth = maxDepth(root->left);
-            
-        if (root->right)
-            right_depth = maxDepth(root->right);
-
-        return std::max(left_depth, right_depth) + 1;
+        return maxDepthIteration(root);
     }
-};
-#endif // RECURSION
 
-#define ITERATION
-#ifdef ITERATION
-
-#include <algorithm>
-#include <vector>
-
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
-class Solution
-{
-public:
-    int maxDepth(TreeNode *root)
+    int maxDepthRecursion(TreeNode *root)
     {
-        std::vector<TreeNode *> node_stack;
-        bool is_fin = false;
         if (!root)
             return 0;
-        
-        node_stack.push_back(root);
+        return std::max(maxDepthRecursion(root->left), maxDepthRecursion(root->right)) + 1;
+    }
 
-        while (!is_fin)
+    int maxDepthIteration(TreeNode *root)
+    {
+        if (!root)
+            return 0;
+
+        std::deque<std::pair<TreeNode *, int>> expand;
+        expand.push_back({root, 1});
+        int res = 1;
+
+        while (!expand.empty())
         {
-            while (node_stack.size())
-            {
-
-            }
+            const auto [cur, depth] = expand.front();
+            expand.pop_front();
+            
+            if (cur->left)
+                expand.emplace_back(cur->left, depth + 1);
+            if (cur->right)
+                expand.emplace_back(cur->right, depth + 1);
+            
+            res = std::max(depth, res);
         }
+        return res;
     }
 };
-
-#endif // ITERATION
